@@ -1,0 +1,23 @@
+
+name: Assignment 1 - Self Evaluation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get student code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run practice test cases
+        run: node --test assignment.test.js
